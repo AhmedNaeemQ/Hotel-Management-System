@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function purchase() {
+            document.getElementById("cost").value = 0
+            var cost = localStorage.setItem("bookingCost","0");
+            window.location.href = "billing.html";
+        }
+        function previouscost() {
+            var cost=0
+            var cost = localStorage.getItem("bookingCost");
+            document.getElementById("cost").value = cost
+        }
+        function reset() {
+            document.getElementById("cost").value = previouscost();
+            var cost = "0"
+            localStorage.setItem("bookingCost", cost);
+            purchase()
+        }
+        function addoncost(event) {
+
+            var cost = Number(document.getElementById("cost").value);
+            var buttonid = event.target.id;
+            if (buttonid === "add-on1") {
+                cost += 900;
+            } else if (buttonid === "add-on2") {
+                cost += 1300;
+            } else if (buttonid === "add-on3") {
+                cost += 800;
+            } 
+            document.getElementById("cost").value = cost;
+            localStorage.setItem("bookingCost", cost);
+        }
+
+    </script>
+</head>
+<body onload="previouscost()">
+    <div class="portal">
+        <div class="navbar">
+            <img src="img/logo.png" class="logo">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="cafe.html">Cafe</a></li>
+                <li><a href="add-ons.html" class="curr">Add-ons</a></li>
+                <li><a href="home.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="addons">
+            <h2>Laundry<button class="book-btn" onclick="addoncost(event)" id="add-on1">+900 Rs</button></h2>
+            <p>Experience the ultimate convenience during your stay with our exceptional laundry service, providing top-notch care for your clothes</p>
+            <h2>Spa Services<button class="book-btn"  onclick="addoncost(event)" id="add-on2">+1300 Rs</button></h2>
+            <p>Indulge in the ultimate relaxation experience with our luxurious spa services, tailored to rejuvenate your body and mind during your stay.</p>
+            <h2>Gym Facility<button class="book-btn" onclick="addoncost(event)" id="add-on3">+800 Rs</button></h2>
+            <p>Elevate your fitness routine during your stay with our state-of-the-art gym facilities, equipped with everything you need for a well-rounded workout.</p>
+
+            <form>
+                <button type="button" class="book-btn" onclick="purchase()">Proceed</button>
+                <button type="button" class="book-btn" onclick="reset()">Reset</button>
+                <label for="cost">Total Cost:</label>
+
+                <input type="text" id="cost" name="cost">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

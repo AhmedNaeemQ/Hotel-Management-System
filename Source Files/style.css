@@ -1,0 +1,588 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* HOME PAGE */
+.banner, .portal{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/bgr.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    height: 10%;
+    width: 95%;
+    margin: auto;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    color: #009688;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0px 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li a.curr::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button{
+    width: 200px;
+    padding: 15px 0px;
+    text-align: center;
+    margin: 20px 10px;
+    border: 2px solid #009688;
+    border-radius: 25px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+button span{
+    background: #009688;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 100%;
+}
+
+button:hover{
+    border-color: transparent;
+}
+
+.promotion{
+    padding-left: 25px;
+}
+
+/*LOGIN PAGE*/
+.form h1, .signup h1{
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.form, .signup{
+    background-color: rgb(148, 209, 148);
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+    margin-top: 25px;
+}
+
+.side-loginpic{
+    margin-top: 15px;
+    margin-left: 10px;
+    float: left;
+    width:500px;
+    border-radius: 10px;
+}
+
+.loginword{
+    width:250px;
+}
+
+.form button, .signup button{
+    width: 150px;
+}
+
+.form input, .feedback textarea, .signup label{
+    height: 40px;
+    width:200px;
+    padding: 5px;
+    color: black;
+    background-color: rgb(170, 235, 213);
+    border:none;
+}
+
+.form .un{
+    background-color: rgb(194, 187, 187);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.pw{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.icons{
+    width:30px;
+    border-radius:50%;
+}
+
+.form p, .signup p{
+    color: #fff;
+    margin-top: 5px;
+}
+
+.form a{
+    color:#009688;
+}
+
+.form .tab{
+    display: flex;
+}
+
+.form .usertab,
+.form .emptab {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: bold;
+    color: black;
+    background-color: #009688;
+    margin-right: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.form .usertab:hover,
+.form .emptab:hover {
+    background-color: #00837a;
+}
+
+.signup .signup-pic{
+    margin-right: 10px;
+    float: right;
+    width:370px;
+    border-radius: 10px;
+}
+
+.signup{
+    background-image: linear-gradient(to bottom right, rgb(11, 188, 233),rgb(186, 15, 238));
+    margin: 25px;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.signup label{
+    background-color: transparent;
+}
+
+.signup input{
+    background-color:rgb(226, 216, 230);
+    border-radius: 6px;
+    border: 1px solid black;
+    height:20px;
+}
+
+/* Facilities */
+.facilities{
+    color: white;
+    padding: 25px;
+    text-align: left;
+}
+.facilities p{
+    display:block;
+    margin-left: 5px;
+}
+.facilities img{
+    height: 300px;
+    width: 600px;
+}
+
+.f2, .f3, .f4{
+    display: grid;
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 50px;
+    color:black;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 100px;
+}
+
+.f3{
+    padding-top: 50px;
+    grid-template-columns: 1fr 1fr;
+}
+.f3 p{
+    padding-right: 200px;
+}
+
+/* Feedback */
+
+.form textarea{
+    margin-top: 15px;
+    resize: none;
+    background-color:rgb(226, 216, 230);
+    border: 1px solid black;
+    height: 100px;
+    border-radius:6px;
+}
+
+.feedback p{
+    color:black;
+}
+
+.feedback{
+    background-image: linear-gradient(to bottom right, green, orange);
+}
+
+.feedbackimg{
+    float: right;
+    width:400px;
+    height:450px;
+    border-radius:10px;
+    margin-right:10px;
+    margin-top:25px;
+}
+
+.feedback button{
+    color:black;
+}
+
+.rating {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.rating input:checked ~ label {
+    color: #ffcc00;
+}  
+
+.popup{
+    background-color: rgb(102, 199, 191);
+    border-radius: 6px;
+    border-color: black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:500px;
+    margin-top: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.849);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    text-align: center;
+}
+
+.popup img{
+    border-radius:50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.849);
+    margin-top:-50px;
+    width:100px;
+}
+
+.open-popup{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.dashboard-popup{
+    padding:25px;
+    margin-top:800px;
+    background-color: brown;
+}
+
+.cafe-popup{
+    margin-top:700px;
+    background-color: rgb(196, 196, 82);
+}
+
+
+/* About us */
+
+.meet{
+    color:#00837a;
+    text-align: center;
+    border-bottom: 3px solid#00837a;
+    margin-bottom: 100px;
+}
+
+.members{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.member {
+    color:#fff;
+    text-align: center;
+}
+  
+.member img {
+    max-width: 50%;
+}
+  
+
+/* Dashboard */
+
+.portal {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/dashboard.jpg);
+}
+
+.dashboard {
+    color:white;
+    padding: 20px;
+}
+
+.dashboard h1, .dashboard p{
+    text-align: center;
+}
+
+.roomavail{
+    color: black;
+}
+
+table{
+    border: 1px solid black;
+    width:100%;
+    text-align: center;
+    color:black;
+}
+
+table button{
+    color:black;
+}
+
+th{
+    padding-top: 15px;
+    background-color: #009688;
+    padding-bottom: 15px;
+}
+
+.dashboard img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.dashboard h2{
+    padding:10px;
+    margin-top: 20px;
+    color:black;
+}
+
+.dashboard p1{
+    padding:100px;
+    color: black;
+}
+
+.roomavail form{
+    padding-right: 160px;
+    text-align: right;
+}
+
+.roomavail label, .addons label{
+    margin-left: 400px;
+}
+
+.book-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.book-btn:hover{
+    transform: scale(1.1);
+}
+
+/* CAFE */
+
+.cafe{
+    color:white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/cafe.jpg);
+}
+.cafe h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cafe img, .cafe ul{
+    margin-top:8px;
+}
+
+.cafe form{
+    padding:25px;
+}
+
+.cafe button{
+    z-index: 0;
+}
+
+.items{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.items img{
+    border-radius: 20px;
+    transition: transform 0.3s;
+    box-shadow: 0 0 20px rgba(206, 226, 217, 0.849);
+    
+}
+
+.items img:hover {
+    transform: scale(1.1);
+}
+
+.cafe table{
+    margin-top: -5%;
+    color:white;
+    width:500px;
+}
+
+.cafe input{
+    width: 50px;
+    background-color:rgb(170, 235, 213);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.centeralize{
+    margin-left:30%;
+}
+
+/* ADD ONS */
+
+.addons{
+    margin-top: 25px;
+    padding: 25px;
+    color:white;
+}
+.addons form{
+    color:white;
+}
+
+/* Billing */
+
+.billing{
+    color:white;
+    padding:25px;
+    line-height: 4px;
+}
+
+.billing h1{
+    margin-bottom: 60px;
+}
+
+.billing form{
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.billing input{
+    height:30px;
+    width:180px;
+    border-radius: 25px;
+    background-color: black;
+    color:white;
+    margin-bottom:30px;
+    padding-left:10px;
+}
+
+.billing img{
+    margin-left:25px;
+}
+
+.billing button{
+    z-index:0;
+    background-color: red;
+    border-color: red;
+}
+
+.billing-popup h2{
+    padding-top:25px;
+    padding-bottom: 20px;
+}
+

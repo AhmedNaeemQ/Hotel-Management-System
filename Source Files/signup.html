@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function redirect(){
+                openpopup();
+                window.location.href='login.html';
+            }
+            function openpopup(){
+                let popup=document.getElementById("popup");
+                popup.classList.add("open-popup");
+            }
+            function closepopup(){
+                let popup=document.getElementById("popup");
+                popup.classList.remove("open-popup");
+                window.location.href='login.html';
+            }
+        </script>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <img src="img/logo.png" class="logo">
+                <ul>
+                    <li><a href="home.html">Home</a> </li>
+                    <li><a href="login.html" class="curr">Login</a></li>
+                    <li><a href="facilities.html">Facilities</a> </li>
+                    <li><a href="feedback.html">Feedback</a> </li>
+                    <li><a href="aboutus.html">About us</a> </li>
+                </ul>
+            </div>
+            <div class="form signup">
+                <form>
+                    <img src="img/signup.png" class="signup-pic">
+                    <h1>Sign Up</h1>
+
+                    <label for="name">Full Name:</label>
+                    <input class="field" type="text" id="name" name="name" required><br><br>
+                    
+                    <label for="name">Username:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+            
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+            
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+            
+                    <p>Or you can sign-up with</p>
+                    <img src="img/linkedin.png" class="icons">
+                    <img src="img/fb.jpg" class="icons">
+                    <img src="img/twitter.png" class="icons">
+                    <img src="img/ig.jpg" class="icons">
+                    <br>
+                    <button type="button" onclick="openpopup()"><span></span>Sign Up</button>
+                </form>
+                <div class="popup" id="popup">
+                    <img src="img/tick.png">
+                    <h2>Sign-up Successful!</h2>
+                    <button type="button" onclick="closepopup()"><span></span>Great!</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

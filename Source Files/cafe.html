@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cafe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="popup.js"></script>
+    <script>
+        function order() {
+            openpopup();
+            document.getElementById("T1").value = "0";
+            document.getElementById("quantity1").value = "0";
+            document.getElementById("quantity2").value = "0";
+            document.getElementById("quantity3").value = "0";
+            document.getElementById("quantity4").value = "0";
+            document.getElementById("quantity5").value = "0";
+            document.getElementById("quantity6").value = "0";
+
+        }
+        function totalcost(event) {
+            var biryaniQty = document.getElementById("quantity1").value;
+            var pulaoQty = document.getElementById("quantity2").value;
+            var laysQty = document.getElementById("quantity3").value;
+            var friesQty = document.getElementById("quantity4").value;
+            var shawrmaQty = document.getElementById("quantity5").value;
+            var juiceQty = document.getElementById("quantity6").value;
+
+            var biryaniCost = 180 * biryaniQty;
+            var pulaoCost = 150 * pulaoQty;
+            var laysCost = 50 * laysQty;
+            var friesCost = 50 * friesQty;
+            var shawrmaCost = 150 * shawrmaQty;
+            var juicecost = 40 * juiceQty
+            var totalCost = biryaniCost + pulaoCost + laysCost + friesCost + shawrmaCost + juicecost;
+            document.getElementById("T1").value = totalCost;
+        }
+        function update(quan) {
+            var currentQty = parseInt(quan.value);
+            var newQty = currentQty + 1;
+            quan.value = newQty;
+            totalcost(event);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="cafe">
+        <div class="navbar">
+            <img src="img/logo.png" class="logo">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a> </li>
+                <li><a href="cafe.html" class="curr">Cafe</a> </li>
+                <li><a href="add-ons.html">Add-ons</a></li>
+                <li><a href="home.html">Logout</a></li>
+            </ul>
+        </div>
+        <h1>CAFE</h1>
+        <form>
+            <h2>
+                <div class="items">
+                    <div class="item">
+                        <img src="img/biryani.jpg" height="150" width="150" onclick="update(quantity1)">
+                        <p>Biryani: 180Rs</p><br />
+                    </div>
+                    <div class="item">
+                        <img src="img/karahi.jpg" height="150" width="150" onclick="update(quantity2)">
+                        <p>Karahi: 150Rs</p><br />
+                    </div>
+                    <div class="item">
+                        <img src="img/lays.jpg" height="150" width="150" onclick="update(quantity3)">
+                        <p>Lays: 50Rs</p><br />
+                    </div>
+                    <div class="item">
+                        <img src="img/fries.jpg" height="150" width="150" onclick="update(quantity4)">
+                        <p>Fries: 50Rs</p><br />
+                    </div>
+                    <div class="item">
+                        <img src="img/burger.jpg" height="150" width="150" onclick="update(quantity5)">
+                        <p>Burger: 150Rs</p><br />
+                    </div>
+                    <div class="item">
+                        <img src="img/juice.jpg" height="150" width="150" onclick="update(quantity6)">
+                        <p>Juice: 40Rs</p><br />
+                    </div>
+                </div>
+            </h2>
+            <div class="centeralize">
+            <h2>Your Order</h2>
+            <table>
+            <tr>
+                <th>Items</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>Biryani:</td> 
+                <td><input type="number" id="quantity1" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr> 
+
+            <br />
+            <tr>
+                <td>Karahi: </td>
+                <td><input type="number" id="quantity2" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr>    
+            <br />
+            <tr>
+                <td>Lays: </td>
+                <td><input type="number" id="quantity3" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr>    
+            <br />
+            <tr>
+                <td>Fries: </td>
+                <td><input type="number" id="quantity4" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr>    
+            <br />
+            <tr>
+                <td>Burger: </td>
+                <td><input type="number" id="quantity5" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr>    
+            <br />
+            <tr>
+                <td>Juice: </td>
+                <td><input type="number" id="quantity6" oninput="totalcost(event)" value="0" name="quantity" min="0"/></td>
+            </tr>    
+            </table>
+            <br />
+            Your cost: <input type="text" id="T1" name="T1" value="0" />
+
+            <br />
+            <button type="button" onclick="order()"><span></span>ORDER</button>
+            </div>
+            <div class="popup cafe-popup" id="popup">
+                <img src="img/food.jpg">
+                <h2>Your Order has been placed successfully!</h2>
+                <button type="button" onclick="closepopup()"><span></span>Great!</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

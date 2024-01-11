@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="popup.js"></script>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <img src="img/logo.png" class="logo">
+                <ul>
+                    <li><a href="home.html">Home</a> </li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="facilities.html">Facilities</a> </li>
+                    <li><a href="feedback.html" class="curr">Feedback</a> </li>
+                    <li><a href="aboutus.html">About us</a> </li>
+                </ul>
+            </div>
+            <div class="form signup feedback">
+                <img src="img/feedback.jpg" class="feedbackimg">
+                <h1>FEEDBACK</h1>
+                <input type="text" placeholder="Name">
+                <textarea id="feedback" name="feedback" placeholder="Your valuable feedback..." rows="8" cols="25"></textarea><br>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="1 star">&#9733;</label>
+                </div>
+                <br>
+                <button type="button" onclick="openpopup()"><span></span>Submit</button>
+                <div class="popup" id="popup">
+                    <img src="img/tick.png">
+                    <h2>Your Response has been recorded!</h2>
+                    <button type="button" onclick="closepopup()"><span></span>Great!</button>
+                </div>
+                <p>Don't have a account? </p>
+                <img src="img/linkedin.png" class="icons">
+                <img src="img/fb.jpg" class="icons">
+                <img src="img/twitter.png" class="icons">
+                <img src="img/ig.jpg" class="icons">
+                <br>
+                <a href="signup.html">Sign Up</a>
+            </div>  
+        </div>
+    </body>
+</html>

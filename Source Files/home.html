@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hotel Management System</title>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function resetcost() {
+                var cost = "0"
+                localStorage.setItem("bookingCost", cost);
+            }
+        </script>
+    </head>
+    <body onload="resetcost()">
+        <div class="banner">
+            <div class="navbar">
+                <img src="img/logo.png" class="logo">
+                <ul>
+                    <li><a href="home.html" class="curr">Home</a> </li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="facilities.html">Facilities</a> </li>
+                    <li><a href="feedback.html">Feedback</a> </li>
+                    <li><a href="aboutus.html">About us</a> </li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>LUXURIOUS ROOMS</h1>
+                <p>High on comfort, low on your pocket</p>
+                <div>
+                    <a href="login.html" ><button type="button"><span></span>Book Now</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="promotion">
+            <h1>SPECIAL OFFERS</h1>
+            <p>Enjoy discounts and special offers designed to make your comfortable stay, more affordable.</p>
+            <img src="img/offer.jpg" class="offer">
+        </div>
+        <hr>
+    </body>
+</html>

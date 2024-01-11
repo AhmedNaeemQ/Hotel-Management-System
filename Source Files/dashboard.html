@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>My Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="popup.js"></script>
+    <script>
+        function previouscost() {
+            var cost = 0
+            var cost = localStorage.getItem("bookingCost");
+            document.getElementById("cost").value = cost
+        }
+        function roomcost(event) {
+             
+                var cost = Number(document.getElementById("cost").value);
+                var buttonid = event.target.id;
+                if (buttonid === "room0") {
+                    cost += 16000;
+                } else if (buttonid === "room1") {
+                    cost += 15000;
+                } else if (buttonid === "room2") {
+                    cost += 13000;
+                } else if (buttonid === "room3") {
+                    cost += 12000;
+                } else if (buttonid === "room4") {
+                    cost += 11000;
+                }
+                if(cost>=22000&&cost<=30800){
+                cost=cost*0.9;
+                cost=Math.round(cost);
+                document.getElementById("cost").value = cost;
+                openpopup();
+                }
+                else if((cost==31000&&(buttonid=="room0"||buttonid=="room1"))||(cost==32000&&buttonid=="room0")){
+                cost=cost*0.9;
+                cost=Math.round(cost);
+                document.getElementById("cost").value = cost;
+                openpopup();
+                }
+                
+                cost=Math.round(cost);
+                document.getElementById("cost").value = cost;
+            localStorage.setItem("bookingCost", cost);
+        }
+        function reset() {
+            document.getElementById("cost").value = "0";
+            var cost="0"
+            localStorage.setItem("bookingCost", cost);
+            purchase();
+        }
+
+        function proceedToAddOns() {
+            var cost = document.getElementById("cost").value;
+            localStorage.setItem("bookingCost", cost);
+            window.location.href = "add-ons.html";
+        }
+    </script>
+</head>
+<body onload="previouscost()">
+    <div class="popup dashboard-popup" id="popup">
+        <img src="img/discount.png">
+        <h2>Congratulations! 20% Discount on 2 Rooms.</h2>
+        <button type="button" onclick="closepopup()"><span></span>Great!</button>
+    </div>
+
+    <div class="portal">
+        <div class="navbar">
+            <img src="img/logo.png" class="logo">
+            <ul>
+                <li><a href="dashboard.html" class="curr">Dashboard</a></li>
+                <li><a href="cafe.html">Cafe</a></li>
+                <li><a href="add-ons.html">Add-ons</a></li>
+                <li><a href="home.html">Logout</a></li>
+            </ul>
+        </div>
+        <div class="dashboard">
+            <h1>Welcome to My Hotel!</h1>
+            <p>Our team is dedicated to providing exceptional service and ensuring that your stay with us is comfortable and memorable.</p>
+            <img src="img/team.jpg">
+            <div class="roomavail">
+                <h2>Previously Booked Rooms</h2>
+                <p>No reserved rooms!</p>
+                <h2>Rooms Available</h2>
+                <table>
+                    <tr>
+                        <th>Room No.</th>
+                        <th>Room Type</th>
+                        <th>Persons</th>
+                        <th>No. of Days</th>
+                        <th>Price</th>
+                        <th>Book</th>
+                    </tr>
+                    <tr>
+                        <td>Room#101</td>
+                        <td>Suite</td>
+                        <td>2</td>
+                        <td>2 day(s)</td>
+                        <td>16000</td>
+                        <td><button type="button" onclick="roomcost(event)" id="room0"><span></span>Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Room#245</td>
+                        <td>Deluxe</td>
+                        <td>1</td>
+                        <td>1 day(s)</td>
+                        <td>15000</td>
+                        <td><button type="button" onclick="roomcost(event)" id="room1"><span></span>Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Room#331</td>
+                        <td>Twin</td>
+                        <td>2</td>
+                        <td>2 day(s)</td>
+                        <td>13000</td>
+                        <td><button type="button" onclick="roomcost(event)" id="room2"><span></span>Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Room#145</td>
+                        <td>Deluxe King</td>
+                        <td>1</td>
+                        <td>1 day(s)</td>
+                        <td>12000</td>
+                        <td><button type="button" onclick="roomcost(event)" id="room3"><span></span>Book</button></td>
+                    </tr>
+                    <tr>
+                        <td>Room#333</td>
+                        <td>Suite</td>
+                        <td>1</td>
+                        <td>1 day(s)</td>
+                        <td>11000</td>
+                        <td><button type="button" onclick="roomcost(event)" id="room4"><span></span>Book</button></td>
+                    </tr>
+                </table>
+                <form>
+                    <button type="button" class="book-btn" onclick="proceedToAddOns()">Proceed</button>
+                    <button type="button" class="book-btn" onclick="reset()">Reset</button>
+                    <label for="cost">Total Cost:</label>
+                    <input type="text" id="cost" name="cost">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
